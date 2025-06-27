@@ -1,17 +1,19 @@
-# recipes
+# WEB Recipes
 
-# Peringatan Penting Mengenai Kunci API:
+Peringatan Penting Mengenai Kunci API:
 
-# Gemini API Key: Anda memerlukan kunci API dari Google AI Studio. Anda bisa mendapatkannya secara gratis.
-Kunjungi Google AI Studio.
-Klik "Get API key" dan buat kunci API baru.
-Unsplash API Key: Untuk mencari gambar secara otomatis, kita akan menggunakan API dari Unsplash, yang gratis untuk penggunaan development.
+- Gemini API Key:
+Anda memerlukan kunci API dari Google AI Studio. Anda bisa mendapatkannya secara gratis.
+1. Kunjungi Google AI Studio.
+2. Klik "Get API key" dan buat kunci API baru.
 
-# Kunjungi Unsplash Developers.
-Buat akun, lalu buat aplikasi baru.
-Anda akan mendapatkan "Access Key".
+- Unsplash API Key:
+Untuk mencari gambar secara otomatis, kita akan menggunakan API dari Unsplash, yang gratis untuk penggunaan development.
+1. Kunjungi Unsplash Developers.
+2. Buat akun, lalu buat aplikasi baru.
+3. Anda akan mendapatkan "Access Key".
 
-# Keamanan: JANGAN PERNAH membagikan kunci API Anda secara publik. Karena kita menggunakan JavaScript sisi klien, kunci ini akan terlihat oleh siapa saja yang memeriksa kode sumber situs Anda. Solusi ini cocok untuk proyek pribadi atau portofolio, tetapi TIDAK AMAN untuk aplikasi produksi skala besar. Untuk produksi, logika API harus berada di sisi server (backend).
+Keamanan: JANGAN PERNAH membagikan kunci API Anda secara publik. Karena kita menggunakan JavaScript sisi klien, kunci ini akan terlihat oleh siapa saja yang memeriksa kode sumber situs Anda. Solusi ini cocok untuk proyek pribadi atau portofolio, tetapi TIDAK AMAN untuk aplikasi produksi skala besar. Untuk produksi, logika API harus berada di sisi server (backend).
 
 # Cara Menggunakan (Versi Baru)
 1. Dapatkan Kunci API: Ikuti instruksi di awal untuk mendapatkan kunci API Gemini dan Unsplash.
