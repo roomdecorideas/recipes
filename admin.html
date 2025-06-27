@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Panel - Nice Recipes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <h1>Nice Recipes</h1>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Homepage</a>
+        <a href="admin.html">Control Panel</a>
+    </nav>
+
+    <main class="container">
+        <div class="admin-form">
+            <h2 style="text-align: center; margin-bottom: 30px;">Tambah Resep Baru</h2>
+            <form id="add-recipe-form">
+                <div class="form-group">
+                    <label for="recipe-title">Judul Resep</label>
+                    <input type="text" id="recipe-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="recipe-image-link">Link Gambar (URL)</label>
+                    <input type="url" id="recipe-image-link" required placeholder="https://example.com/gambar-resep.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="recipe-content">Isi Artikel (Gunakan Markdown untuk format)</label>
+                    <textarea id="recipe-content" required placeholder="Contoh: &#10;&#10;### Bahan-Bahan&#10;* 1 ekor ayam&#10;* 5 siung bawang merah&#10;&#10;### Langkah-langkah&#10;1. Cuci bersih ayam.&#10;2. Haluskan bumbu..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Simpan Resep</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <p>&copy; 2025 Nice Recipes. Dibuat dengan ❤️</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
