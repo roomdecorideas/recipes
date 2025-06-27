@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,33 +16,45 @@
     </header>
 
     <nav>
-        <a href="index.html">Homepage</a>
+        <a href="index.html">Home</a>
         <a href="admin.html">Control Panel</a>
     </nav>
 
     <main class="container">
+
+        <section id="ai-generator">
+            <h3>✨ AI Recipe Generator</h3>
+            <div class="ai-controls">
+                <input type="text" id="keyword-input" placeholder="Enter a food keyword (e.g., 'chicken curry')">
+                <button id="generate-btn">Generate</button>
+            </div>
+            <div class="loader-container">
+                <div id="loader" class="loader"></div>
+            </div>
+        </section>
+
         <div class="admin-form">
-            <h2 style="text-align: center; margin-bottom: 30px;">Tambah Resep Baru</h2>
+            <h2 style="text-align: center; margin-bottom: 30px;">Add / Edit Recipe</h2>
             <form id="add-recipe-form">
                 <div class="form-group">
-                    <label for="recipe-title">Judul Resep</label>
+                    <label for="recipe-title">Recipe Title</label>
                     <input type="text" id="recipe-title" required>
                 </div>
                 <div class="form-group">
-                    <label for="recipe-image-link">Link Gambar (URL)</label>
-                    <input type="url" id="recipe-image-link" required placeholder="https://example.com/gambar-resep.jpg">
+                    <label for="recipe-image-link">Image URL</label>
+                    <input type="url" id="recipe-image-link" required placeholder="https://example.com/image.jpg">
                 </div>
                 <div class="form-group">
-                    <label for="recipe-content">Isi Artikel (Gunakan Markdown untuk format)</label>
-                    <textarea id="recipe-content" required placeholder="Contoh: &#10;&#10;### Bahan-Bahan&#10;* 1 ekor ayam&#10;* 5 siung bawang merah&#10;&#10;### Langkah-langkah&#10;1. Cuci bersih ayam.&#10;2. Haluskan bumbu..."></textarea>
+                    <label for="recipe-content">Article Content (Markdown format)</label>
+                    <textarea id="recipe-content" required></textarea>
                 </div>
-                <button type="submit" class="btn-submit">Simpan Resep</button>
+                <button type="submit" class="btn-submit">Save Recipe</button>
             </form>
         </div>
     </main>
     
     <footer class="site-footer">
-        <p>&copy; 2025 Nice Recipes. Dibuat dengan ❤️</p>
+        <p>&copy; 2025 Nice Recipes. Made with ❤️</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
