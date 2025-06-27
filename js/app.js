@@ -1,64 +1,40 @@
 // js/app.js
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Ambil data resep dari localStorage
     const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
 
-    // Jika data resep kosong, tambahkan data contoh
+    // Add sample data if local storage is empty
     if (recipes.length === 0) {
         const sampleRecipes = [
             {
                 id: 1,
-                title: "Contoh Resep: Nasi Goreng Spesial",
+                title: "Sample Recipe: Special Fried Rice",
                 imageUrl: "https://images.unsplash.com/photo-1599543331610-8a73a3aa3497?q=80&w=1974&auto=format&fit=crop",
                 content: `
-                    <h2>Bahan-Bahan</h2>
+                    <h2>Ingredients</h2>
                     <ul>
-                        <li>2 piring nasi putih dingin</li>
-                        <li>2 butir telur, kocok lepas</li>
-                        <li>100 gr udang, kupas</li>
-                        <li>5 buah bakso sapi, iris</li>
-                        <li>3 siung bawang putih, cincang halus</li>
-                        <li>2 sdm kecap manis</li>
-                        <li>1 sdm saus tiram</li>
-                        <li>Garam dan merica secukupnya</li>
+                        <li>2 plates of cold white rice</li>
+                        <li>2 eggs, beaten</li>
+                        <li>100g shrimp, peeled</li>
+                        <li>5 beef meatballs, sliced</li>
+                        <li>3 cloves of garlic, finely chopped</li>
+                        <li>2 tbsp sweet soy sauce</li>
+                        <li>1 tbsp oyster sauce</li>
+                        <li>Salt and pepper to taste</li>
                     </ul>
-                    <h2>Langkah-langkah</h2>
+                    <h2>Instructions</h2>
                     <ol>
-                        <li>Panaskan minyak, tumis bawang putih hingga harum.</li>
-                        <li>Masukkan telur, orak-arik hingga matang.</li>
-                        <li>Masukkan udang dan bakso, masak hingga berubah warna.</li>
-                        <li>Masukkan nasi, aduk rata.</li>
-                        <li>Bumbui dengan kecap manis, saus tiram, garam, dan merica. Aduk hingga semua bahan tercampur rata.</li>
-                        <li>Sajikan selagi hangat dengan taburan bawang goreng.</li>
-                    </ol>
-                `
-            },
-            {
-                id: 2,
-                title: "Contoh Resep: Ayam Bakar Madu",
-                imageUrl: "https://images.unsplash.com/photo-1598511829037-33b8a3b55816?q=80&w=1964&auto=format&fit=crop",
-                content: `
-                    <h2>Bahan-Bahan</h2>
-                    <ul>
-                        <li>1 ekor ayam, potong 4 bagian</li>
-                        <li>5 sdm madu</li>
-                        <li>3 sdm kecap manis</li>
-                        <li>1 buah jeruk nipis</li>
-                        <li>Garam secukupnya</li>
-                    </ul>
-                    <h2>Langkah-langkah</h2>
-                    <ol>
-                        <li>Lumuri ayam dengan air jeruk nipis dan garam, diamkan 15 menit.</li>
-                        <li>Campurkan madu dan kecap manis, aduk rata.</li>
-                        <li>Olesi ayam dengan campuran madu, lalu bakar di atas bara api hingga matang sambil terus diolesi sisa bumbu.</li>
-                        <li>Sajikan dengan sambal dan lalapan.</li>
+                        <li>Heat oil, sauté garlic until fragrant.</li>
+                        <li>Add eggs, scramble until cooked.</li>
+                        <li>Add shrimp and meatballs, cook until they change color.</li>
+                        <li>Add rice, stir well.</li>
+                        <li>Season with sweet soy sauce, oyster sauce, salt, and pepper. Stir until all ingredients are well mixed.</li>
+                        <li>Serve warm with a sprinkle of fried onions.</li>
                     </ol>
                 `
             }
         ];
         localStorage.setItem('recipes', JSON.stringify(sampleRecipes));
-        // Muat ulang halaman untuk menampilkan data contoh
         location.reload(); 
     }
 
@@ -76,7 +52,7 @@ function displayRecipesOnHomepage(recipes) {
     if (!grid) return;
     
     if (recipes.length === 0) {
-        grid.innerHTML = '<p style="text-align:center; grid-column: 1 / -1;">Belum ada resep. Tambahkan resep baru melalui halaman Control Panel.</p>';
+        grid.innerHTML = '<p style="text-align:center; grid-column: 1 / -1;">No recipes yet. Add a new recipe from the Control Panel.</p>';
         return;
     }
 
@@ -100,16 +76,13 @@ function displaySingleRecipe(recipes) {
     const recipe = recipes.find(r => r.id === recipeId);
 
     if (recipe) {
-        // SEO: Update title dan meta description
         document.title = `${recipe.title} - Nice Recipes`;
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-            // Membuat deskripsi singkat dari konten
             const plainTextContent = recipe.content.replace(/<[^>]+>/g, ' ').substring(0, 155);
             metaDesc.setAttribute('content', `${plainTextContent}...`);
         }
 
-        // Tampilkan konten resep
         container.innerHTML = `
             <header class="article-header">
                 <h1>${recipe.title}</h1>
@@ -120,8 +93,7 @@ function displaySingleRecipe(recipes) {
             </div>
         `;
 
-        // Tampilkan Related Posts (semua resep kecuali yang sedang dibuka)
-        const relatedRecipes = recipes.filter(r => r.id !== recipeId).slice(0, 3); // Ambil 3 resep terkait
+        const relatedRecipes = recipes.filter(r => r.id !== recipeId).slice(0, 3);
         if (relatedRecipes.length > 0) {
             relatedGrid.innerHTML = relatedRecipes.map(related => `
                 <a href="artikel.html?id=${related.id}" class="recipe-card">
@@ -136,7 +108,7 @@ function displaySingleRecipe(recipes) {
         }
 
     } else {
-        container.innerHTML = '<h1>404 - Resep Tidak Ditemukan</h1><p>Maaf, resep yang Anda cari tidak ada atau telah dihapus.</p>';
+        container.innerHTML = '<h1>404 - Recipe Not Found</h1><p>Sorry, the recipe you are looking for does not exist or has been removed.</p>';
         document.querySelector('.related-posts').style.display = 'none';
     }
 }
