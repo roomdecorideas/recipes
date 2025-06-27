@@ -3,8 +3,8 @@
 // --- Konfigurasi API ---
 // !!! PENTING: Ganti dengan kunci API Anda.
 // JANGAN bagikan kunci ini secara publik.
-const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY';
-const UNSPLASH_ACCESS_KEY = 'YOUR_UNSPLASH_ACCESS_KEY';
+const GEMINI_API_KEY = 'AIzaSyCAyz8--M1V3IlRKtAtVKxfv5hgygi1Xk8';
+const UNSPLASH_ACCESS_KEY = 'qF1aT9vEMrevZ2eGua-aefEP2N1bwRM35IHvevga3AA';
 
 // --- Elemen DOM ---
 const generateBtn = document.getElementById('generate-btn');
